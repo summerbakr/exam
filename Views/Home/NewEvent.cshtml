@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan a New Activity!</title>
+</head>
+<body>
+<h2>Create your activity by filling out the form below.</h2>
+<body>
+    @model Event
+    <form method="post" action="/processevent">
+    
+    <p>Title: <input asp-for="Title"></p>
+    <p><span style="color:red;" asp-validation-for="Title"></span></p>
+
+    <p>Date:<input asp-for="Date"></p>
+    <p><span style="color:red;" asp-validation-for="Date"></span></p>
+
+    <p>Time:<input asp-for="Time"></p>
+    <p><span style="color:red;" asp-validation-for="Time"></span></p>
+
+    <p>Duration: <input asp-for="Duration"></p>
+    <p><span style="color:red;" asp-validation-for="Duration"></span></p>
+
+    <p>Description: <textarea asp-for="Description"></textarea></p>
+    <p><span style="color:red;" asp-validation-for="Description"></span></p>
+
+    <input type="Submit" value="Create Event!">
+    </form>
+    
+</body>
+    
+</body>
+</html>

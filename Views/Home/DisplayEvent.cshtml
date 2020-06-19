@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Event</title>
+</head>
+<body>
+    @model User
+    <h2>@ViewBag.EventToDisplay.Title</h2>
+    <h3>Event Coordinator: @ViewBag.EventToDisplay.Creator.FirstName @ViewBag.EventToDisplay.Creator.LastName</h3>
+    <h4>Description: @ViewBag.EventToDisplay.Description</h3>
+    <h4>Participants: </h3>
+    <ul>
+    @foreach (Participant p in @ViewBag.EventToDisplay.Participants)
+    {
+    <li>@p.Planner.FirstName @p.Planner.LastName</li>
+    if(@p.Planner.UserId==@Model.UserId)
+    {
+        <p><a href="/leave/@ViewBag.EventToDisplay.EventId/@Model.UserId">Leave Event</a></p>
+
+    }
+        
+    }
+    </ul>
+    
+    @if (@ViewBag.EventToDisplay.UserId==@Model.UserId)
+    {
+        <p><a href="/delete/@ViewBag.EventToDisplay.EventId">Delete Event</a></p>
+    
+    }
+<p>Don't like what you see? Checkout the other events on the <a href="/dashboard/@Model.UserId">dashboard.</a></p>
+    
+</body>
+</html>

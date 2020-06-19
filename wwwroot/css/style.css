@@ -1,0 +1,22 @@
+.wrapper {
+    padding-top: 100px;
+    background-color: plum;
+    height: 1000px;
+}
+
+#loginheader{
+    margin-bottom: 150px;
+
+}
+
+.tablestyle {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .tablestyle th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .tablestyle tr:nth-child(even) {background-color: #f2f2f2;}

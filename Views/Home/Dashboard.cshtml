@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/dashboardstyle.css"/>
+    <title>Document</title>
+</head>
+<body>
+  @model User
+<h3 id="greeting">Hello, @Model.FirstName</h3>
+
+<a class="button" href="/new">Plan a new event!</a>
+
+<table class="tablestyle">
+    <thead>
+        <th>Activity</th>
+        <th>Date and Time</th>
+        <th>Duration</th>
+        <th>Event Coordinator</th>
+        <th>No. of Participants</th>
+        <th>Actions</th>
+
+    </thead>  
+    <tbody>
+    @foreach (Event e in @ViewBag.AllEvents)
+    {
+        <tr>
+            <td><a href="/displayevent/@e.EventId">@e.Title</a></td>
+            <td>@e.Date.ToShortDateString() at @e.Time.ToShortTimeString()</td>
+            <td>@e.Duration</td>
+            <td>@e.Creator.FirstName @e.Creator.LastName</td>
+            <td>@e.Participants.Count</td>
+            @if(e.UserId==@Model.UserId)
+            {
+            <td><a href="/delete/@e.EventId">Delete</a></td>
+            }
+            else 
+            {
+                if (@e.Participants.Any(a=>a.UserId==Model.UserId))
+                {
+                    <td><a href="/leave/@e.EventId/@Model.UserId">Leave Event</a></td>
+
+
+                }
+                else 
+                {
+                    <td><a href="/join/@e.EventId/@Model.UserId">Join Event</a></td>
+                }
+            }
+
+        </tr>
+    }
+    </tbody>
+</table>
+  
+</body>
+</html>
+

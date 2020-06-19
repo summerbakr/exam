@@ -1,0 +1,35 @@
+
+.tablestyle {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .tablestyle th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .tablestyle tr:nth-child(even) {background-color: #f2f2f2;}
+
+  .button {
+    display: block;
+    width: 300px;
+    height: 50px;
+    background-color: rgb(113, 210, 235) ;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+    margin-bottom: 50px;
+}
+
+.button:hover{
+    background-color: cornflowerblue;
+}
+
+#greeting {
+    margin-bottom: 50px;
+    text-align: right;
+}
